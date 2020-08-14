@@ -23,30 +23,30 @@
             </objects>
             <point key="canvasLocation" x="-1597" y="139"/>
         </scene>
-        <!--YouOweMe-->
+        <!--Table View Controller-->
         <scene sceneID="jbG-5U-ELn">
             <objects>
-                <tableViewController id="3Z7-hf-2dC" customClass="TableViewController" customModule="YouOweMe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableVC" id="3Z7-hf-2dC" customClass="TableViewController" customModule="YouOweMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BWg-IC-YqK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="jWd-t3-Yk7">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BorrowerCell" id="jWd-t3-Yk7" customClass="BorrowerTableViewCell" customModule="YouOweMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jWd-t3-Yk7" id="J9A-C5-aMl">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKj-g9-2Gm">
-                                            <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKj-g9-2Gm">
+                                            <rect key="frame" x="20" y="11.5" width="45" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyM-UR-K1u">
-                                            <rect key="frame" x="352" y="11.5" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyM-UR-K1u">
+                                            <rect key="frame" x="334" y="11.5" width="60" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -55,25 +55,30 @@
                                     <constraints>
                                         <constraint firstItem="gyM-UR-K1u" firstAttribute="centerY" secondItem="J9A-C5-aMl" secondAttribute="centerY" id="5Ik-68-lQD"/>
                                         <constraint firstItem="nKj-g9-2Gm" firstAttribute="centerY" secondItem="J9A-C5-aMl" secondAttribute="centerY" id="98C-nS-wYe"/>
-                                        <constraint firstItem="gyM-UR-K1u" firstAttribute="leading" secondItem="nKj-g9-2Gm" secondAttribute="trailing" constant="290" id="Z52-e2-D2h"/>
+                                        <constraint firstItem="gyM-UR-K1u" firstAttribute="leading" relation="lessThanOrEqual" secondItem="nKj-g9-2Gm" secondAttribute="trailing" constant="290" id="Z52-e2-D2h"/>
                                         <constraint firstItem="nKj-g9-2Gm" firstAttribute="leading" secondItem="J9A-C5-aMl" secondAttribute="leading" constant="20" id="hmj-Yt-AC8"/>
-                                        <constraint firstItem="gyM-UR-K1u" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J9A-C5-aMl" secondAttribute="trailingMargin" id="oxi-UV-C3y"/>
+                                        <constraint firstItem="gyM-UR-K1u" firstAttribute="trailing" secondItem="J9A-C5-aMl" secondAttribute="trailingMargin" id="oxi-UV-C3y"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="amountLabel" destination="gyM-UR-K1u" id="Vak-LB-TBI"/>
+                                    <outlet property="nameLabel" destination="nKj-g9-2Gm" id="cCE-Kj-UYa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="3Z7-hf-2dC" id="t9f-za-aW1"/>
                             <outlet property="delegate" destination="3Z7-hf-2dC" id="gSL-7F-mKH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="YouOweMe" id="0F7-Rc-0EP">
+                    <navigationItem key="navigationItem" id="0F7-Rc-0EP">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="cHK-QJ-1gh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="WHR-7r-OMe">
                                 <rect key="frame" x="369" y="10" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="v5O-Wn-PRt" kind="show" id="yN5-8a-ifb"/>
+                                    <segue destination="v5O-Wn-PRt" kind="show" id="8n6-Qp-0c7"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -86,7 +91,7 @@
         <!--Add New Borrower-->
         <scene sceneID="3ui-Ym-M8i">
             <objects>
-                <viewController id="v5O-Wn-PRt" sceneMemberID="viewController">
+                <viewController id="v5O-Wn-PRt" customClass="NewBorrowerViewController" customModule="YouOweMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pye-0m-UQk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,10 +124,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N4z-0p-k8a">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N4z-0p-k8a">
                                                 <rect key="frame" x="65" y="0.0" width="309" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="amountTextField:" destination="wxb-Bq-wSK" eventType="editingDidBegin" id="h95-ze-ezF"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -138,8 +146,13 @@
                         <viewLayoutGuide key="safeArea" id="W0c-Ye-oMb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Borrower" id="A28-PA-Ekj"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="N4z-0p-k8a" id="6tX-0h-PVI"/>
+                        <outlet property="nameTextField" destination="bKy-2h-ouL" id="Uj1-8c-pbB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vo3-Ga-ozP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wxb-Bq-wSK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="115.94202898550725" y="138.61607142857142"/>
         </scene>
