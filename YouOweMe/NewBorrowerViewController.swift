@@ -12,31 +12,36 @@ class NewBorrowerViewController: UIViewController {
 
   // MARK: - Properties
   @IBOutlet weak var nameTextField: UITextField!
-  @IBOutlet weak var amountTextField: UITextField!
+  @IBOutlet weak var activityTextField: UITextField!
+  @IBOutlet weak var amountTextField: CurrencyField!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+
+    // TODO: Give user ability to change currency region
+    amountTextField.locale = Locale(identifier: "en_US") // or "en_US", "fr_FR", etc
+
+    amountTextField.keyboardType = .numberPad
+
     nameTextField.returnKeyType = UIReturnKeyType.next
-    amountTextField.returnKeyType = UIReturnKeyType.done
+    activityTextField.returnKeyType = UIReturnKeyType.next
+
     self.nameTextField.delegate = self
     self.amountTextField.delegate = self
+    self.activityTextField.delegate = self
+
+    self.nameTextField.becomeFirstResponder()
   }
 
-  /*
-   // MARK: - Navigation
-
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
-
-  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-  //    let vc = segue.destination as! TableViewController
-  //  }
-
+  @IBAction func donePressed(_ sender: Any) {
+    let newBorrower = Borrower(name: nameTextField.text!, activity: activityTextField.text!, amount: amountTextField.text!)
+    let previousVC = navigationController?.viewControllers.first as! TableViewController
+    previousVC.borrowerArray.append(newBorrower)
+    previousVC.tableView.reloadData()
+    navigationController?.popViewController(animated: true)
+  }
+  
 }
 
 extension NewBorrowerViewController: UITextFieldDelegate {
@@ -47,12 +52,6 @@ extension NewBorrowerViewController: UITextFieldDelegate {
       nextResponder.becomeFirstResponder()
     } else {
       textField.resignFirstResponder()
-      let newBorrower = Borrower(name: nameTextField.text!, amount: amountTextField.text!)
-      // push data back to previous VC
-      let vc = navigationController?.viewControllers[0] as! TableViewController
-      vc.borrowerArray.append(newBorrower)
-      vc.tableView.reloadData()
-      navigationController?.popViewController(animated: true)
     }
 
     return true

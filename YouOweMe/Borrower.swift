@@ -10,10 +10,12 @@ import Foundation
 
 class Borrower {
   var name: String
+  var activity: String
   var amount: String
 
-  init(name: String, amount: String) {
+  init(name: String, activity: String, amount: String) {
     self.name = name
+    self.activity = activity
     self.amount = amount
   }
 }
