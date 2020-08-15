@@ -20,7 +20,7 @@ class NewBorrowerViewController: UIViewController {
     // Do any additional setup after loading the view.
 
     // TODO: Give user ability to change currency region
-    amountTextField.locale = Locale(identifier: "en_US") // or "en_US", "fr_FR", etc
+    amountTextField.locale = Locale(identifier: "en_US")
 
     amountTextField.keyboardType = .numberPad
 

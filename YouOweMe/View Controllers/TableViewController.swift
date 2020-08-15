@@ -44,7 +44,11 @@ class TableViewController: UITableViewController {
     cell.nameLabel.text = borrowerArray[indexPath.row].name
     cell.amountLabel.text = borrowerArray[indexPath.row].amount
     return cell
-
   }
+
+  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    true
+  }
+
 
 }

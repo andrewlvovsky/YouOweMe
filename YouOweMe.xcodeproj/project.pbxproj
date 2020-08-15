@@ -47,6 +47,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		437B711D24E7756B0062AFF5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43C1CE3224E5CD8C002485B4 /* TableViewController.swift */,
+				43C1CE4924E648CF002485B4 /* NewBorrowerViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		437B711E24E7758E0062AFF5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				434C037824E659D900CC1755 /* Borrower.swift */,
+				434C037B24E682B800CC1755 /* BorrowerTableViewCell.swift */,
+				432160BD24E73E6F003AD78E /* CurrencyField.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		437B711F24E775A80062AFF5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				43C1CE3424E5CD8C002485B4 /* Main.storyboard */,
+				43C1CE3C24E5CD8D002485B4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		43C1CE2224E5CD8C002485B4 = {
 			isa = PBXGroup;
 			children = (
@@ -68,14 +96,10 @@
 			children = (
 				43C1CE2E24E5CD8C002485B4 /* AppDelegate.swift */,
 				43C1CE3024E5CD8C002485B4 /* SceneDelegate.swift */,
-				43C1CE3224E5CD8C002485B4 /* TableViewController.swift */,
-				434C037824E659D900CC1755 /* Borrower.swift */,
-				43C1CE3424E5CD8C002485B4 /* Main.storyboard */,
-				432160BD24E73E6F003AD78E /* CurrencyField.swift */,
-				43C1CE4924E648CF002485B4 /* NewBorrowerViewController.swift */,
-				434C037B24E682B800CC1755 /* BorrowerTableViewCell.swift */,
+				437B711E24E7758E0062AFF5 /* Models */,
+				437B711D24E7756B0062AFF5 /* View Controllers */,
+				437B711F24E775A80062AFF5 /* Storyboards */,
 				43C1CE3A24E5CD8D002485B4 /* Assets.xcassets */,
-				43C1CE3C24E5CD8D002485B4 /* LaunchScreen.storyboard */,
 				43C1CE3F24E5CD8D002485B4 /* Info.plist */,
 				43C1CE3724E5CD8C002485B4 /* YouOweMe.xcdatamodeld */,
 			);
