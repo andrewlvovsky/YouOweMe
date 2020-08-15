@@ -154,15 +154,18 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-n7-Qj4">
-                                <rect key="frame" x="20" y="278" width="350" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-n7-Qj4">
+                                <rect key="frame" x="20" y="270" width="374" height="377"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="YxR-e5-wUs" firstAttribute="leading" secondItem="W0c-Ye-oMb" secondAttribute="leading" constant="20" id="SP1-X1-GUz"/>
+                            <constraint firstItem="TLW-n7-Qj4" firstAttribute="leading" secondItem="YxR-e5-wUs" secondAttribute="leading" id="THG-nX-jnL"/>
+                            <constraint firstItem="W0c-Ye-oMb" firstAttribute="bottom" secondItem="TLW-n7-Qj4" secondAttribute="bottom" constant="215" id="Ueb-Vl-wH6"/>
                             <constraint firstItem="YxR-e5-wUs" firstAttribute="top" secondItem="W0c-Ye-oMb" secondAttribute="top" constant="20" id="gbq-uH-56A"/>
+                            <constraint firstItem="TLW-n7-Qj4" firstAttribute="centerX" secondItem="Pye-0m-UQk" secondAttribute="centerX" id="jt2-ic-LRF"/>
+                            <constraint firstItem="TLW-n7-Qj4" firstAttribute="top" secondItem="YxR-e5-wUs" secondAttribute="bottom" constant="20" id="p5e-mo-zOJ"/>
                             <constraint firstItem="W0c-Ye-oMb" firstAttribute="trailing" secondItem="YxR-e5-wUs" secondAttribute="trailing" constant="20" id="uWS-pR-836"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W0c-Ye-oMb"/>
