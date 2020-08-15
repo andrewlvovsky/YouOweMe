@@ -89,4 +89,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-*key.swift
+# API Key File (.env)
+#
+
+Keys.swift
