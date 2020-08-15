@@ -20,7 +20,6 @@
 		43C1CE4A24E648CF002485B4 /* NewBorrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1CE4924E648CF002485B4 /* NewBorrowerViewController.swift */; };
 		43CBC76024E79E08008C8640 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CBC75F24E79E08008C8640 /* Utilities.swift */; };
 		43CBC76224E7A26E008C8640 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CBC76124E7A26E008C8640 /* ImageRequest.swift */; };
-		43CBC76424E7B070008C8640 /* Keys.key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CBC76324E7B070008C8640 /* Keys.key.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		43C1CE4924E648CF002485B4 /* NewBorrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBorrowerViewController.swift; sourceTree = "<group>"; };
 		43CBC75F24E79E08008C8640 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		43CBC76124E7A26E008C8640 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
-		43CBC76324E7B070008C8640 /* Keys.key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.key.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 			children = (
 				43C1CE2E24E5CD8C002485B4 /* AppDelegate.swift */,
 				43C1CE3024E5CD8C002485B4 /* SceneDelegate.swift */,
-				43CBC76324E7B070008C8640 /* Keys.key.swift */,
 				43CBC75F24E79E08008C8640 /* Utilities.swift */,
 				437B711E24E7758E0062AFF5 /* Models */,
 				437B711D24E7756B0062AFF5 /* View Controllers */,
@@ -190,7 +187,6 @@
 				43C1CE2F24E5CD8C002485B4 /* AppDelegate.swift in Sources */,
 				43C1CE3124E5CD8C002485B4 /* SceneDelegate.swift in Sources */,
 				434C037C24E682B800CC1755 /* BorrowerTableViewCell.swift in Sources */,
-				43CBC76424E7B070008C8640 /* Keys.key.swift in Sources */,
 				43C1CE4A24E648CF002485B4 /* NewBorrowerViewController.swift in Sources */,
 				432160BE24E73E6F003AD78E /* CurrencyField.swift in Sources */,
 				43CBC76024E79E08008C8640 /* Utilities.swift in Sources */,
