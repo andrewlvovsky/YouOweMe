@@ -74,6 +74,7 @@
                                     <outlet property="activityLabel" destination="X0y-EV-W1L" id="leo-YK-97j"/>
                                     <outlet property="amountLabel" destination="gyM-UR-K1u" id="Vak-LB-TBI"/>
                                     <outlet property="nameLabel" destination="nKj-g9-2Gm" id="cCE-Kj-UYa"/>
+                                    <segue destination="Yqo-qD-Ua8" kind="show" id="jNj-kW-cf1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -102,6 +103,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uz6-25-dnG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-741" y="139"/>
+        </scene>
+        <!--Edit Borrower-->
+        <scene sceneID="g5c-S6-mjU">
+            <objects>
+                <viewController id="Yqo-qD-Ua8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UfF-QC-jYC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6hX-uW-I3d"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Borrower" id="Z2p-BA-S1g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcM-Q2-SBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742" y="841"/>
         </scene>
         <!--Add New Borrower-->
         <scene sceneID="3ui-Ym-M8i">
@@ -137,6 +154,10 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-n7-Qj4">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -154,6 +175,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityImage" destination="TLW-n7-Qj4" id="ZbE-oU-9hW"/>
                         <outlet property="activityTextField" destination="wBw-8a-sB6" id="ZYm-bm-Ow7"/>
                         <outlet property="amountTextField" destination="N4z-0p-k8a" id="6tX-0h-PVI"/>
                         <outlet property="nameTextField" destination="bKy-2h-ouL" id="Uj1-8c-pbB"/>
