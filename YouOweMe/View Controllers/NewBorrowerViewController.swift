@@ -24,6 +24,9 @@ class NewBorrowerViewController: UIViewController {
 
     amountTextField.keyboardType = .numberPad
 
+    nameTextField.autocapitalizationType = .words
+    activityTextField.autocapitalizationType = .sentences
+
     nameTextField.returnKeyType = UIReturnKeyType.next
     activityTextField.returnKeyType = UIReturnKeyType.next
 
@@ -37,7 +40,7 @@ class NewBorrowerViewController: UIViewController {
   @IBAction func donePressed(_ sender: Any) {
     let newBorrower = Borrower(name: nameTextField.text!, activity: activityTextField.text!, amount: amountTextField.text!)
     let previousVC = navigationController?.viewControllers.first as! TableViewController
-    previousVC.borrowerArray.append(newBorrower)
+    previousVC.borrowers.append(newBorrower)
     previousVC.tableView.reloadData()
     navigationController?.popViewController(animated: true)
   }

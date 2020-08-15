@@ -71,6 +71,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityLabel" destination="X0y-EV-W1L" id="leo-YK-97j"/>
                                     <outlet property="amountLabel" destination="gyM-UR-K1u" id="Vak-LB-TBI"/>
                                     <outlet property="nameLabel" destination="nKj-g9-2Gm" id="cCE-Kj-UYa"/>
                                 </connections>
@@ -83,16 +84,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0F7-Rc-0EP">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="cHK-QJ-1gh">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="WHR-7r-OMe">
-                                <rect key="frame" x="369" y="10" width="25" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="v5O-Wn-PRt" kind="show" id="8n6-Qp-0c7"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="gHf-88-gjz">
+                            <connections>
+                                <action selector="editPressed:" destination="3Z7-hf-2dC" id="1C6-uv-vud"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cHK-QJ-1gh">
+                            <connections>
+                                <segue destination="v5O-Wn-PRt" kind="show" id="1WA-HC-tTr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="gHf-88-gjz" id="6ui-G3-GSn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uz6-25-dnG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

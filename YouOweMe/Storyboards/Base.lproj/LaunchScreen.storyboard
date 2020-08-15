@@ -15,20 +15,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Blue Circle" translatesAutoresizingMaskIntoConstraints="NO" id="nbJ-je-AJW">
-                                <rect key="frame" x="152" y="386" width="126" height="125"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Blue Circle" translatesAutoresizingMaskIntoConstraints="NO" id="nbJ-je-AJW">
+                                <rect key="frame" x="144" y="386" width="126" height="125"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Letter M" translatesAutoresizingMaskIntoConstraints="NO" id="MiK-ze-ULc">
-                                <rect key="frame" x="162" y="519" width="107" height="107"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Letter Y" translatesAutoresizingMaskIntoConstraints="NO" id="cJo-S8-C5O">
-                                <rect key="frame" x="171" y="271" width="89" height="107"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Y" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0i-9c-ASg">
+                                <rect key="frame" x="158" y="235" width="98" height="175"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="150"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxJ-rQ-Bh7">
+                                <rect key="frame" x="144" y="478" width="125" height="179"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nbJ-je-AJW" firstAttribute="top" secondItem="J0i-9c-ASg" secondAttribute="bottom" constant="-24" id="9b8-xl-hRg"/>
+                            <constraint firstItem="J0i-9c-ASg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cvg-vT-CEJ"/>
+                            <constraint firstItem="nbJ-je-AJW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cft-X3-vvf"/>
+                            <constraint firstItem="nbJ-je-AJW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gSu-TJ-I6X"/>
+                            <constraint firstItem="QxJ-rQ-Bh7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="oOz-UY-uCe"/>
+                            <constraint firstItem="QxJ-rQ-Bh7" firstAttribute="top" secondItem="nbJ-je-AJW" secondAttribute="bottom" constant="-33" id="tfI-ri-iYF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -39,7 +50,5 @@
     </scenes>
     <resources>
         <image name="Blue Circle" width="126" height="125"/>
-        <image name="Letter M" width="107" height="107"/>
-        <image name="Letter Y" width="89" height="107"/>
     </resources>
 </document>
