@@ -50,6 +50,7 @@ class NewBorrowerViewController: UIViewController {
       guard let httpResponse = response as? HTTPURLResponse,
         (200..<300).contains(httpResponse.statusCode),
         let data = data else {
+          completion(false)
           return
       }
 
@@ -69,21 +70,45 @@ class NewBorrowerViewController: UIViewController {
     }.resume()
   }
 
+  func presentAlert(withTitle title: String, andMessage message: String) {
+    let alertController = UIAlertController(title: title,
+                                            message: message,
+                                            preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "OK",
+                                 style: .default) { _ in
+                                  // Do nothing -- simply dismiss alert.
+    }
+    alertController.addAction(okAction)
+    self.present(alertController, animated: true, completion: nil)
+  }
+
   @IBAction func donePressed(_ sender: Any) {
     spinner.startAnimating()
-    queryForActivityImage() { isDone in
+
+    let sender = sender as! UIBarButtonItem
+    sender.isEnabled = false
+
+    queryForActivityImage() { noIssues in
+
       DispatchQueue.main.async {
         self.spinner.stopAnimating()
-        let newBorrower = Borrower(
-          name: self.nameTextField.text!,
-          activity: self.activityTextField.text!,
-          activityImage: self.activityImageURL,
-          amount: self.amountTextField.text!)
-        let previousVC = self.navigationController?.viewControllers.first as! TableViewController
-        previousVC.borrowers.append(newBorrower)
-        previousVC.tableView.reloadData()
+        sender.isEnabled = true
+        if noIssues {
+          let newBorrower = Borrower(
+            name: self.nameTextField.text!,
+            activity: self.activityTextField.text!,
+            activityImage: self.activityImageURL,
+            amount: self.amountTextField.text!)
+          let previousVC = self.navigationController?.viewControllers.first as! TableViewController
+          previousVC.borrowers.append(newBorrower)
+          previousVC.tableView.reloadData()
+        }
+        else {
+          self.presentAlert(withTitle: "Error", andMessage: "The borrower cannot be created.")
+        }
         self.navigationController?.popViewController(animated: true)
       }
+
     }
   }
 }
