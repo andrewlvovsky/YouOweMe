@@ -90,7 +90,6 @@
                                     <outlet property="amountLabel" destination="gyM-UR-K1u" id="Vak-LB-TBI"/>
                                     <outlet property="nameLabel" destination="nKj-g9-2Gm" id="cCE-Kj-UYa"/>
                                     <outlet property="spinner" destination="G4z-K8-JgU" id="i0T-lM-Np8"/>
-                                    <segue destination="Yqo-qD-Ua8" kind="show" id="jNj-kW-cf1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -120,26 +119,10 @@
             </objects>
             <point key="canvasLocation" x="-742.02898550724649" y="138.61607142857142"/>
         </scene>
-        <!--Edit Borrower-->
-        <scene sceneID="g5c-S6-mjU">
-            <objects>
-                <viewController id="Yqo-qD-Ua8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UfF-QC-jYC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6hX-uW-I3d"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Edit Borrower" id="Z2p-BA-S1g"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dcM-Q2-SBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-742" y="841"/>
-        </scene>
         <!--Add New Borrower-->
         <scene sceneID="3ui-Ym-M8i">
             <objects>
-                <viewController id="v5O-Wn-PRt" customClass="NewBorrowerViewController" customModule="YouOweMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewBorrower" id="v5O-Wn-PRt" customClass="NewBorrowerViewController" customModule="YouOweMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pye-0m-UQk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

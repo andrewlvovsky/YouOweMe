@@ -17,6 +17,10 @@ class NewBorrowerViewController: UIViewController {
   @IBOutlet weak var amountTextField: CurrencyField!
   @IBOutlet weak var spinner: UIActivityIndicatorView!
 
+  var name = String()
+  var activity = String()
+  var amount = String()
+
   let appDelegate = UIApplication.shared.delegate as! AppDelegate
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   var fetchedRC: NSFetchedResultsController<BorrowerEntity>!
@@ -26,6 +30,17 @@ class NewBorrowerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+
+    if name.isEmpty || activity.isEmpty || amount.isEmpty {
+      navigationItem.title = "Add Borrower"
+    } else {
+      navigationItem.title = "Edit Borrower"
+    }
+
+
+    nameTextField.text = name
+    activityTextField.text = activity
+    amountTextField.text = amount
 
     // TODO: Give user ability to change currency region
     amountTextField.locale = Locale(identifier: "en_US")
