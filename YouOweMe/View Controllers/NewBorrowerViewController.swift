@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NewBorrowerViewController: UIViewController {
 
@@ -15,6 +16,10 @@ class NewBorrowerViewController: UIViewController {
   @IBOutlet weak var activityTextField: UITextField!
   @IBOutlet weak var amountTextField: CurrencyField!
   @IBOutlet weak var spinner: UIActivityIndicatorView!
+
+  let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  var fetchedRC: NSFetchedResultsController<BorrowerEntity>!
 
   var activityImageURL: URL?
 
@@ -82,6 +87,16 @@ class NewBorrowerViewController: UIViewController {
     self.present(alertController, animated: true, completion: nil)
   }
 
+  func convertToBorrowerEntity(borrower: Borrower) -> BorrowerEntity {
+    let borrowerData = BorrowerEntity(entity: BorrowerEntity.entity(), insertInto: context)
+    borrowerData.name = borrower.name
+    borrowerData.activity = borrower.activity
+    borrowerData.amount = borrower.amount
+    borrowerData.image = borrower.activityImage?.dataRepresentation
+
+    return borrowerData
+  }
+
   @IBAction func donePressed(_ sender: Any) {
     spinner.startAnimating()
 
@@ -100,7 +115,10 @@ class NewBorrowerViewController: UIViewController {
             activityImage: self.activityImageURL,
             amount: self.amountTextField.text!)
           let previousVC = self.navigationController?.viewControllers.first as! TableViewController
-          previousVC.borrowers.append(newBorrower)
+          let borrowerEntity = self.convertToBorrowerEntity(borrower: newBorrower)
+
+          self.appDelegate.saveContext()
+          previousVC.borrowers.append(borrowerEntity)
           previousVC.tableView.reloadData()
         }
         else {

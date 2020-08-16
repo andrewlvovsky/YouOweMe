@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
 
-  var borrowers = [Borrower]()
+  var borrowers = [BorrowerEntity]()
+  
+  let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  var fetchedRC: NSFetchedResultsController<BorrowerEntity>!
 
   @IBOutlet weak var editButton: UIBarButtonItem!
 
@@ -18,6 +23,7 @@ class TableViewController: UITableViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     addNavBarImage()
+    refresh()
     navigationItem.leftBarButtonItem?.title = "Edit"
   }
 
@@ -38,6 +44,30 @@ class TableViewController: UITableViewController {
     self.navigationItem.titleView = titleView
   }
 
+  func refresh() {
+    let request = BorrowerEntity.fetchRequest() as NSFetchRequest<BorrowerEntity>
+    let sort = NSSortDescriptor(key: #keyPath(BorrowerEntity.name), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+    request.sortDescriptors = [sort]
+    do {
+      fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: #keyPath(BorrowerEntity.name), cacheName: nil)
+      try fetchedRC.performFetch()
+      if let objs = fetchedRC.fetchedObjects {
+        borrowers = objs
+      }
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+    }
+  }
+
+  @IBAction func editPressed(_ sender: Any) {
+    isEditing = !isEditing
+  }
+
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: true)
+    self.editButton.title = editing ? "Done" : "Edit"
+  }
+
   // MARK: - Table View Functions
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -49,10 +79,10 @@ class TableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "BorrowerCell", for: indexPath) as! BorrowerTableViewCell
-    cell.nameLabel.text = borrowers[indexPath.row].name + " owes you"
+    cell.nameLabel.text = borrowers[indexPath.row].name! + " owes you"
     cell.activityLabel.text = borrowers[indexPath.row].activity
-    cell.amountLabel.text = borrowers[indexPath.row].amount + " for"
-    if let imageURL = borrowers[indexPath.row].activityImage {
+    cell.amountLabel.text = borrowers[indexPath.row].amount! + " for"
+    if let imageURL = URL(dataRepresentation: borrowers[indexPath.row].image!, relativeTo: nil)  {
       cell.activityImage.load(url: imageURL) { _ in
         cell.spinner.stopAnimating()
       }
@@ -77,14 +107,12 @@ class TableViewController: UITableViewController {
     borrowers.insert(borrowerAtSource, at: destinationIndex!)
   }
 
-  @IBAction func editPressed(_ sender: Any) {
-    isEditing = !isEditing
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      borrowers.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .fade
+      )
+    }
   }
-
-  override func setEditing(_ editing: Bool, animated: Bool) {
-    super.setEditing(editing, animated: true)
-    self.editButton.title = editing ? "Done" : "Edit"
-  }
-
 
 }
