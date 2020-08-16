@@ -52,6 +52,9 @@ class TableViewController: UITableViewController {
     cell.nameLabel.text = borrowers[indexPath.row].name
     cell.activityLabel.text = borrowers[indexPath.row].activity
     cell.amountLabel.text = borrowers[indexPath.row].amount
+    if let imageURL = borrowers[indexPath.row].activityImage {
+      cell.activityImage.load(url: imageURL)
+    }
     return cell
   }
 

@@ -13,6 +13,7 @@ class BorrowerTableViewCell: UITableViewCell {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var activityLabel: UILabel!
   @IBOutlet weak var amountLabel: UILabel!
+  @IBOutlet weak var activityImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -18,11 +18,13 @@ struct Borrower: Hashable {
 
   var name: String
   var activity: String
+  var activityImage: URL?
   var amount: String
 
-  init(name: String, activity: String, amount: String) {
+  init(name: String, activity: String, activityImage: URL?, amount: String) {
     self.name = name
     self.activity = activity
+    self.activityImage = activityImage
     self.amount = amount
   }
 }

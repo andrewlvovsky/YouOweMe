@@ -14,7 +14,8 @@ class NewBorrowerViewController: UIViewController {
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var activityTextField: UITextField!
   @IBOutlet weak var amountTextField: CurrencyField!
-  @IBOutlet weak var activityImage: UIImageView!
+
+  var activityImageURL: URL?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,10 +39,10 @@ class NewBorrowerViewController: UIViewController {
     self.nameTextField.becomeFirstResponder()
   }
 
-  func decodeImage() {
+  func queryForActivityImage(completion: @escaping (Bool) -> ()) {
     let decoder = JSONDecoder()
-    let trimmedActivityString = activityTextField.text!.replacingOccurrences(of: " ", with: "+")
-    let apiCallURL = URL(string: "https://customsearch.googleapis.com/customsearch/v1?cx=014035877497483723493%3Avpcwnljllha&num=1&searchType=image&key=\(googleAPIKey)&q=\(trimmedActivityString)")
+    let editedActivityString = activityTextField.text!.replacingOccurrences(of: " ", with: "+")
+    let apiCallURL = URL(string: "https://customsearch.googleapis.com/customsearch/v1?cx=014035877497483723493%3Avpcwnljllha&num=1&searchType=image&key=\(googleAPIKey)&q=\(editedActivityString)")
 
     URLSession.shared.dataTask(with: apiCallURL!) { (data, response, error) in
 
@@ -55,23 +56,34 @@ class NewBorrowerViewController: UIViewController {
         let imageRequest: ImageRequest
         imageRequest = try decoder.decode(ImageRequest.self, from: data)
         if let url = URL(string: imageRequest.items.first!.link) {
-          self.activityImage.load(url: url)
+          self.activityImageURL = url
+          completion(true)
+
         }
       } catch {
         print("Unable to decode: \(error)")
+        return
       }
 
     }.resume()
   }
 
   @IBAction func donePressed(_ sender: Any) {
-    let newBorrower = Borrower(name: nameTextField.text!, activity: activityTextField.text!, amount: amountTextField.text!)
-    let previousVC = navigationController?.viewControllers.first as! TableViewController
-    previousVC.borrowers.append(newBorrower)
-    previousVC.tableView.reloadData()
-    navigationController?.popViewController(animated: true)
+    queryForActivityImage() { isDone in
+      print(isDone)
+      DispatchQueue.main.async {
+        let newBorrower = Borrower(
+          name: self.nameTextField.text!,
+          activity: self.activityTextField.text!,
+          activityImage: self.activityImageURL,
+          amount: self.amountTextField.text!)
+        let previousVC = self.navigationController?.viewControllers.first as! TableViewController
+        previousVC.borrowers.append(newBorrower)
+        previousVC.tableView.reloadData()
+        self.navigationController?.popViewController(animated: true)
+      }
+    }
   }
-  
 }
 
 extension NewBorrowerViewController: UITextFieldDelegate {
@@ -87,9 +99,4 @@ extension NewBorrowerViewController: UITextFieldDelegate {
     return true
   }
 
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    if textField.tag == 1 {
-      decodeImage()
-    }
-  }
 }
