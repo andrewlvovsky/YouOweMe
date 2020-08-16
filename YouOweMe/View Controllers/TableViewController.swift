@@ -109,9 +109,12 @@ class TableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
+      let borrower = borrowers[indexPath.row]
       borrowers.remove(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .fade
-      )
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+      context.delete(borrower)
+      appDelegate.saveContext()
+      refresh()
     }
   }
 
