@@ -14,16 +14,18 @@ class BorrowerTableViewCell: UITableViewCell {
   @IBOutlet weak var activityLabel: UILabel!
   @IBOutlet weak var amountLabel: UILabel!
   @IBOutlet weak var activityImage: UIImageView!
+  @IBOutlet weak var spinner: UIActivityIndicatorView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+    spinner.startAnimating()
+  }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
+    // Configure the view for the selected state
+  }
 
 }

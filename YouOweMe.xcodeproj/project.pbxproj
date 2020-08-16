@@ -21,6 +21,7 @@
 		43CBC76024E79E08008C8640 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CBC75F24E79E08008C8640 /* Utilities.swift */; };
 		43CBC76224E7A26E008C8640 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CBC76124E7A26E008C8640 /* ImageRequest.swift */; };
 		43E90D1624E8953F0044990C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E90D1524E8953F0044990C /* Keys.swift */; };
+		43E90D1824E8C4C20044990C /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E90D1724E8C4C20044990C /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		43CBC75F24E79E08008C8640 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		43CBC76124E7A26E008C8640 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		43E90D1524E8953F0044990C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		43E90D1724E8C4C20044990C /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				434C037B24E682B800CC1755 /* BorrowerTableViewCell.swift */,
 				432160BD24E73E6F003AD78E /* CurrencyField.swift */,
 				43CBC76124E7A26E008C8640 /* ImageRequest.swift */,
+				43E90D1724E8C4C20044990C /* ProgressBar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				43CBC76024E79E08008C8640 /* Utilities.swift in Sources */,
 				43C1CE3924E5CD8C002485B4 /* YouOweMe.xcdatamodeld in Sources */,
 				434C037924E659D900CC1755 /* Borrower.swift in Sources */,
+				43E90D1824E8C4C20044990C /* ProgressBar.swift in Sources */,
 				43CBC76224E7A26E008C8640 /* ImageRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

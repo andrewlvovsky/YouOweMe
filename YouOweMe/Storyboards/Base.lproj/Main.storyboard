@@ -63,18 +63,25 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="G4z-K8-JgU">
+                                            <rect key="frame" x="312" y="57" width="37" height="37"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="nKj-g9-2Gm" firstAttribute="top" secondItem="J9A-C5-aMl" secondAttribute="topMargin" id="2Vl-1h-nmZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="G4z-K8-JgU" secondAttribute="trailing" constant="45" id="5DB-xt-xoh"/>
                                         <constraint firstItem="gyM-UR-K1u" firstAttribute="leading" secondItem="J9A-C5-aMl" secondAttribute="leadingMargin" id="76H-uG-9wm"/>
                                         <constraint firstItem="nKj-g9-2Gm" firstAttribute="leading" secondItem="J9A-C5-aMl" secondAttribute="leadingMargin" id="7To-WN-MSv"/>
                                         <constraint firstItem="7UA-fZ-Jsh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="nKj-g9-2Gm" secondAttribute="trailing" constant="201" id="HKD-Z3-EWT"/>
                                         <constraint firstItem="X0y-EV-W1L" firstAttribute="bottom" secondItem="J9A-C5-aMl" secondAttribute="bottomMargin" id="OLD-T5-1jo"/>
                                         <constraint firstItem="7UA-fZ-Jsh" firstAttribute="trailing" secondItem="J9A-C5-aMl" secondAttribute="trailingMargin" id="PgW-SF-KIg"/>
+                                        <constraint firstItem="G4z-K8-JgU" firstAttribute="top" secondItem="J9A-C5-aMl" secondAttribute="topMargin" constant="46" id="WTx-Ir-Ga1"/>
+                                        <constraint firstItem="G4z-K8-JgU" firstAttribute="centerY" secondItem="J9A-C5-aMl" secondAttribute="centerY" id="gyB-N0-OfY"/>
                                         <constraint firstItem="7UA-fZ-Jsh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="X0y-EV-W1L" secondAttribute="trailing" constant="189" id="h06-sx-NcF"/>
                                         <constraint firstItem="7UA-fZ-Jsh" firstAttribute="centerY" secondItem="J9A-C5-aMl" secondAttribute="centerY" id="hvj-lm-xP7"/>
                                         <constraint firstItem="X0y-EV-W1L" firstAttribute="leading" secondItem="J9A-C5-aMl" secondAttribute="leadingMargin" id="q0D-pd-N7f"/>
                                         <constraint firstItem="gyM-UR-K1u" firstAttribute="centerY" secondItem="J9A-C5-aMl" secondAttribute="centerY" id="r0j-r5-YUU"/>
+                                        <constraint firstItem="G4z-K8-JgU" firstAttribute="centerX" secondItem="7UA-fZ-Jsh" secondAttribute="centerX" id="uzR-1X-HeR"/>
                                         <constraint firstItem="7UA-fZ-Jsh" firstAttribute="top" secondItem="nKj-g9-2Gm" secondAttribute="top" id="x1M-mn-5Bj"/>
                                         <constraint firstItem="7UA-fZ-Jsh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="gyM-UR-K1u" secondAttribute="trailing" constant="186" id="yyz-Bb-nOz"/>
                                     </constraints>
@@ -84,6 +91,7 @@
                                     <outlet property="activityLabel" destination="X0y-EV-W1L" id="leo-YK-97j"/>
                                     <outlet property="amountLabel" destination="gyM-UR-K1u" id="Vak-LB-TBI"/>
                                     <outlet property="nameLabel" destination="nKj-g9-2Gm" id="cCE-Kj-UYa"/>
+                                    <outlet property="spinner" destination="G4z-K8-JgU" id="i0T-lM-Np8"/>
                                     <segue destination="Yqo-qD-Ua8" kind="show" id="jNj-kW-cf1"/>
                                 </connections>
                             </tableViewCell>
@@ -146,7 +154,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Activity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBw-8a-sB6">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Activity/Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBw-8a-sB6">
                                         <rect key="frame" x="0.0" y="54" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -164,12 +172,17 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ERI-a3-Mvy">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="ERI-a3-Mvy" firstAttribute="centerX" secondItem="Pye-0m-UQk" secondAttribute="centerX" id="OXu-n8-dMy"/>
                             <constraint firstItem="YxR-e5-wUs" firstAttribute="leading" secondItem="W0c-Ye-oMb" secondAttribute="leading" constant="20" id="SP1-X1-GUz"/>
                             <constraint firstItem="YxR-e5-wUs" firstAttribute="top" secondItem="W0c-Ye-oMb" secondAttribute="top" constant="20" id="gbq-uH-56A"/>
                             <constraint firstItem="W0c-Ye-oMb" firstAttribute="trailing" secondItem="YxR-e5-wUs" secondAttribute="trailing" constant="20" id="uWS-pR-836"/>
+                            <constraint firstItem="ERI-a3-Mvy" firstAttribute="centerY" secondItem="Pye-0m-UQk" secondAttribute="centerY" id="zrI-dZ-xSr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W0c-Ye-oMb"/>
                     </view>
@@ -184,6 +197,7 @@
                         <outlet property="activityTextField" destination="wBw-8a-sB6" id="ZYm-bm-Ow7"/>
                         <outlet property="amountTextField" destination="N4z-0p-k8a" id="6tX-0h-PVI"/>
                         <outlet property="nameTextField" destination="bKy-2h-ouL" id="Uj1-8c-pbB"/>
+                        <outlet property="spinner" destination="ERI-a3-Mvy" id="Vew-ej-8JS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vo3-Ga-ozP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

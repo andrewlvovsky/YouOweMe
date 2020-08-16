@@ -14,6 +14,7 @@ class NewBorrowerViewController: UIViewController {
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var activityTextField: UITextField!
   @IBOutlet weak var amountTextField: CurrencyField!
+  @IBOutlet weak var spinner: UIActivityIndicatorView!
 
   var activityImageURL: URL?
 
@@ -69,9 +70,10 @@ class NewBorrowerViewController: UIViewController {
   }
 
   @IBAction func donePressed(_ sender: Any) {
+    spinner.startAnimating()
     queryForActivityImage() { isDone in
-      print(isDone)
       DispatchQueue.main.async {
+        self.spinner.stopAnimating()
         let newBorrower = Borrower(
           name: self.nameTextField.text!,
           activity: self.activityTextField.text!,

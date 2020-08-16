@@ -49,11 +49,13 @@ class TableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "BorrowerCell", for: indexPath) as! BorrowerTableViewCell
-    cell.nameLabel.text = borrowers[indexPath.row].name
+    cell.nameLabel.text = borrowers[indexPath.row].name + " owes"
     cell.activityLabel.text = borrowers[indexPath.row].activity
-    cell.amountLabel.text = borrowers[indexPath.row].amount
+    cell.amountLabel.text = borrowers[indexPath.row].amount + " for"
     if let imageURL = borrowers[indexPath.row].activityImage {
-      cell.activityImage.load(url: imageURL)
+      cell.activityImage.load(url: imageURL) { _ in
+        cell.spinner.stopAnimating()
+      }
     }
     return cell
   }
