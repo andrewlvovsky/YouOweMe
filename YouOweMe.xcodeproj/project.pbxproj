@@ -17,7 +17,7 @@
 		43C1CE3924E5CD8C002485B4 /* YouOweMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43C1CE3724E5CD8C002485B4 /* YouOweMe.xcdatamodeld */; };
 		43C1CE3B24E5CD8D002485B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C1CE3A24E5CD8D002485B4 /* Assets.xcassets */; };
 		43C1CE3E24E5CD8D002485B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C1CE3C24E5CD8D002485B4 /* LaunchScreen.storyboard */; };
-		43C1CE4A24E648CF002485B4 /* NewBorrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1CE4924E648CF002485B4 /* NewBorrowerViewController.swift */; };
+		43C1CE4A24E648CF002485B4 /* BorrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1CE4924E648CF002485B4 /* BorrowerViewController.swift */; };
 		43CBC76024E79E08008C8640 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CBC75F24E79E08008C8640 /* Utilities.swift */; };
 		43CBC76224E7A26E008C8640 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CBC76124E7A26E008C8640 /* ImageRequest.swift */; };
 		43D477C924E8FF450013B802 /* BorrowerEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D477C724E8FF450013B802 /* BorrowerEntity+CoreDataClass.swift */; };
@@ -39,7 +39,7 @@
 		43C1CE3A24E5CD8D002485B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43C1CE3D24E5CD8D002485B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43C1CE3F24E5CD8D002485B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43C1CE4924E648CF002485B4 /* NewBorrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBorrowerViewController.swift; sourceTree = "<group>"; };
+		43C1CE4924E648CF002485B4 /* BorrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowerViewController.swift; sourceTree = "<group>"; };
 		43CBC75F24E79E08008C8640 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		43CBC76124E7A26E008C8640 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		43D477C724E8FF450013B802 /* BorrowerEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BorrowerEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				43C1CE3224E5CD8C002485B4 /* TableViewController.swift */,
-				43C1CE4924E648CF002485B4 /* NewBorrowerViewController.swift */,
+				43C1CE4924E648CF002485B4 /* BorrowerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 				434C037C24E682B800CC1755 /* BorrowerTableViewCell.swift in Sources */,
 				43D477CA24E8FF450013B802 /* BorrowerEntity+CoreDataProperties.swift in Sources */,
 				43E90D1624E8953F0044990C /* Keys.swift in Sources */,
-				43C1CE4A24E648CF002485B4 /* NewBorrowerViewController.swift in Sources */,
+				43C1CE4A24E648CF002485B4 /* BorrowerViewController.swift in Sources */,
 				43D477C924E8FF450013B802 /* BorrowerEntity+CoreDataClass.swift in Sources */,
 				432160BE24E73E6F003AD78E /* CurrencyField.swift in Sources */,
 				43CBC76024E79E08008C8640 /* Utilities.swift in Sources */,

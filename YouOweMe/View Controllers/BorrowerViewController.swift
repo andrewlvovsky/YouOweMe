@@ -146,14 +146,20 @@ class BorrowerViewController: UIViewController {
               activity: self.activityTextField.text!,
               activityImage: self.activityImageURL,
               amount: self.amountTextField.text!)
-            let borrowerEntity = self.convertToBorrowerEntity(borrower: newBorrower)
+            let newBorrowerEntity = self.convertToBorrowerEntity(borrower: newBorrower)
 
             if self.editMode {
-
+              if let borrowerToEdit = self.borrowerToEdit {
+                let destinationIndex = previousVC.borrowers.firstIndex(of: borrowerToEdit)
+                previousVC.borrowers.removeAll(where: { $0 == borrowerToEdit } )
+                previousVC.borrowers.insert(newBorrowerEntity, at: destinationIndex!)
+                self.context.delete(borrowerToEdit)
+              }
+            } else {
+              previousVC.borrowers.append(newBorrowerEntity)
             }
 
             self.appDelegate.saveContext()
-            previousVC.borrowers.append(borrowerEntity)
             previousVC.tableView.reloadData()
           }
           else {

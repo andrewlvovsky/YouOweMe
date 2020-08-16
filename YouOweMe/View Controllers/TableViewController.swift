@@ -119,9 +119,11 @@ class TableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let destination = storyboard?.instantiateViewController(identifier: "NewBorrower") as! NewBorrowerViewController
+    let destination = storyboard?.instantiateViewController(identifier: "NewBorrower") as! BorrowerViewController
     navigationController?.pushViewController(destination, animated: true)
-    destination.becomeFirstResponder()
+    //destination.becomeFirstResponder()
+    destination.borrowerToEdit = borrowers[indexPath.row]
+    destination.editMode = true
     destination.name = borrowers[indexPath.row].name!
     destination.activity = borrowers[indexPath.row].activity!
     destination.amount = borrowers[indexPath.row].amount!
