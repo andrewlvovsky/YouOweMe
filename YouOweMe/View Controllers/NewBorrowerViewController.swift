@@ -80,7 +80,6 @@ class NewBorrowerViewController: UIViewController {
         if let url = URL(string: imageRequest.items.first!.link) {
           self.activityImageURL = url
           completion(true)
-
         }
       } catch {
         print("Unable to decode: \(error)")
@@ -118,30 +117,42 @@ class NewBorrowerViewController: UIViewController {
     let sender = sender as! UIBarButtonItem
     sender.isEnabled = false
 
-    queryForActivityImage() { noIssues in
+    let previousVC = self.navigationController?.viewControllers.first as! TableViewController
 
-      DispatchQueue.main.async {
-        self.spinner.stopAnimating()
-        sender.isEnabled = true
-        if noIssues {
-          let newBorrower = Borrower(
-            name: self.nameTextField.text!,
-            activity: self.activityTextField.text!,
-            activityImage: self.activityImageURL,
-            amount: self.amountTextField.text!)
-          let previousVC = self.navigationController?.viewControllers.first as! TableViewController
-          let borrowerEntity = self.convertToBorrowerEntity(borrower: newBorrower)
+    let borrowerExists = !previousVC.borrowers.contains(where: {
+      $0.name == self.nameTextField.text! &&
+        $0.amount == self.amountTextField.text! &&
+        $0.activity == self.activityTextField.text!
+    })
 
-          self.appDelegate.saveContext()
-          previousVC.borrowers.append(borrowerEntity)
-          previousVC.tableView.reloadData()
+    if borrowerExists {
+      queryForActivityImage() { noIssues in
+
+        DispatchQueue.main.async {
+          self.spinner.stopAnimating()
+          sender.isEnabled = true
+          if noIssues {
+            let newBorrower = Borrower(
+              name: self.nameTextField.text!,
+              activity: self.activityTextField.text!,
+              activityImage: self.activityImageURL,
+              amount: self.amountTextField.text!)
+            let borrowerEntity = self.convertToBorrowerEntity(borrower: newBorrower)
+
+            self.appDelegate.saveContext()
+            previousVC.borrowers.append(borrowerEntity)
+            previousVC.tableView.reloadData()
+          }
+          else {
+            self.presentAlert(withTitle: "Error", andMessage: "The borrower cannot be created.")
+          }
+          self.navigationController?.popViewController(animated: true)
         }
-        else {
-          self.presentAlert(withTitle: "Error", andMessage: "The borrower cannot be created.")
-        }
-        self.navigationController?.popViewController(animated: true)
+
       }
-
+    } else {
+      self.spinner.stopAnimating()
+      self.navigationController?.popViewController(animated: true)
     }
   }
 }
